@@ -1,4 +1,6 @@
 import { defineConfig } from 'vite'
+import { hmrPlugin, presets } from 'vite-plugin-web-components-hmr'
+
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,4 +13,10 @@ export default defineConfig({
       external: /^lit/,
     },
   },
+  plugins: [
+    hmrPlugin({
+      include: ['./src/**/*'],
+      presets: [presets.lit],
+    }),
+  ],
 })

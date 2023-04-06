@@ -282,7 +282,7 @@ export function Plugging<TBase extends new (...args: any[]) => EditingElement>(
       const tag = pluginTag(plugin.src);
       if (!loadedPlugins.has(tag)) {
         loadedPlugins.add(tag);
-        import(plugin.src).then(mod => customElements.define(tag, mod.default));
+        import(/* @vite-ignore */  plugin.src).then(mod => customElements.define(tag, mod.default));
       }
       return {
         ...plugin,
