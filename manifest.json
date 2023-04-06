@@ -16,7 +16,7 @@
   "dir": "ltr",
   "icons": [
     {
-      "src": "public/icon.svg",
+      "src": "/icon.svg",
       "sizes": "150x150",
       "type": "image/svg+xml",
       "purpose": "any monochrome"
