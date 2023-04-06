@@ -1,7 +1,7 @@
 /* @web/test-runner snapshot v1 */
 export const snapshots = {};
 
-snapshots["open-scd looks like its snapshot"] = 
+snapshots["open-scd looks like its snapshot"] =
 `<mwc-drawer
   class="mdc-theme--surface"
   hasheader=""
@@ -583,7 +583,7 @@ snapshots["open-scd looks like its snapshot"] =
       mwc-list-item=""
       selected=""
       tabindex="0"
-      value="/src/editors/Substation.js"
+      value="/src/editors/Substation.ts"
     >
       <mwc-icon slot="meta">
         margin
@@ -598,7 +598,7 @@ snapshots["open-scd looks like its snapshot"] =
       left=""
       mwc-list-item=""
       tabindex="-1"
-      value="/src/editors/IED.js"
+      value="/src/editors/IED.ts"
     >
       <mwc-icon slot="meta">
         developer_board
@@ -613,7 +613,7 @@ snapshots["open-scd looks like its snapshot"] =
       left=""
       mwc-list-item=""
       tabindex="-1"
-      value="/src/editors/SingleLineDiagram.js"
+      value="/src/editors/SingleLineDiagram.ts"
     >
       <mwc-icon slot="meta">
         edit
@@ -629,7 +629,7 @@ snapshots["open-scd looks like its snapshot"] =
       mwc-list-item=""
       selected=""
       tabindex="-1"
-      value="/src/editors/GooseSubscriberMessageBinding.js"
+      value="/src/editors/GooseSubscriberMessageBinding.ts"
     >
       <mwc-icon slot="meta">
         link
@@ -645,7 +645,7 @@ snapshots["open-scd looks like its snapshot"] =
       mwc-list-item=""
       selected=""
       tabindex="-1"
-      value="/src/editors/GooseSubscriberDataBinding.js"
+      value="/src/editors/GooseSubscriberDataBinding.ts"
     >
       <mwc-icon slot="meta">
         link
@@ -661,7 +661,7 @@ snapshots["open-scd looks like its snapshot"] =
       mwc-list-item=""
       selected=""
       tabindex="-1"
-      value="/src/editors/GooseSubscriberLaterBinding.js"
+      value="/src/editors/GooseSubscriberLaterBinding.ts"
     >
       <mwc-icon slot="meta">
         link
@@ -677,7 +677,7 @@ snapshots["open-scd looks like its snapshot"] =
       mwc-list-item=""
       selected=""
       tabindex="-1"
-      value="/src/editors/SMVSubscriberMessageBinding.js"
+      value="/src/editors/SMVSubscriberMessageBinding.ts"
     >
       <mwc-icon slot="meta">
         link
@@ -693,7 +693,7 @@ snapshots["open-scd looks like its snapshot"] =
       mwc-list-item=""
       selected=""
       tabindex="-1"
-      value="/src/editors/SMVSubscriberDataBinding.js"
+      value="/src/editors/SMVSubscriberDataBinding.ts"
     >
       <mwc-icon slot="meta">
         link
@@ -709,7 +709,7 @@ snapshots["open-scd looks like its snapshot"] =
       mwc-list-item=""
       selected=""
       tabindex="-1"
-      value="/src/editors/SMVSubscriberLaterBinding.js"
+      value="/src/editors/SMVSubscriberLaterBinding.ts"
     >
       <mwc-icon slot="meta">
         link
@@ -725,7 +725,7 @@ snapshots["open-scd looks like its snapshot"] =
       mwc-list-item=""
       selected=""
       tabindex="-1"
-      value="/src/editors/Communication.js"
+      value="/src/editors/Communication.ts"
     >
       <mwc-icon slot="meta">
         settings_ethernet
@@ -740,7 +740,7 @@ snapshots["open-scd looks like its snapshot"] =
       left=""
       mwc-list-item=""
       tabindex="-1"
-      value="/src/editors/Protocol104.js"
+      value="/src/editors/Protocol104.ts"
     >
       <mwc-icon slot="meta">
         settings_ethernet
@@ -756,7 +756,7 @@ snapshots["open-scd looks like its snapshot"] =
       mwc-list-item=""
       selected=""
       tabindex="-1"
-      value="/src/editors/Templates.js"
+      value="/src/editors/Templates.ts"
     >
       <mwc-icon slot="meta">
         copy_all
@@ -771,7 +771,7 @@ snapshots["open-scd looks like its snapshot"] =
       left=""
       mwc-list-item=""
       tabindex="-1"
-      value="/src/editors/Publisher.js"
+      value="/src/editors/Publisher.ts"
     >
       <mwc-icon slot="meta">
         publish
@@ -786,7 +786,7 @@ snapshots["open-scd looks like its snapshot"] =
       left=""
       mwc-list-item=""
       tabindex="-1"
-      value="/src/editors/Cleanup.js"
+      value="/src/editors/Cleanup.ts"
     >
       <mwc-icon slot="meta">
         cleaning_services
@@ -825,7 +825,7 @@ snapshots["open-scd looks like its snapshot"] =
       mwc-list-item=""
       selected=""
       tabindex="-1"
-      value="/src/menu/OpenProject.js"
+      value="/src/menu/OpenProject.ts"
     >
       <mwc-icon slot="meta">
         folder_open
@@ -841,7 +841,7 @@ snapshots["open-scd looks like its snapshot"] =
       mwc-list-item=""
       selected=""
       tabindex="-1"
-      value="/src/menu/NewProject.js"
+      value="/src/menu/NewProject.ts"
     >
       <mwc-icon slot="meta">
         create_new_folder
@@ -857,7 +857,7 @@ snapshots["open-scd looks like its snapshot"] =
       mwc-list-item=""
       selected=""
       tabindex="-1"
-      value="/src/menu/SaveProject.js"
+      value="/src/menu/SaveProject.ts"
     >
       <mwc-icon slot="meta">
         save
@@ -879,7 +879,7 @@ snapshots["open-scd looks like its snapshot"] =
       mwc-list-item=""
       selected=""
       tabindex="-1"
-      value="/src/validators/ValidateSchema.js"
+      value="/src/validators/ValidateSchema.ts"
     >
       <mwc-icon slot="meta">
         rule_folder
@@ -895,7 +895,7 @@ snapshots["open-scd looks like its snapshot"] =
       mwc-list-item=""
       selected=""
       tabindex="-1"
-      value="/src/validators/ValidateTemplates.js"
+      value="/src/validators/ValidateTemplates.ts"
     >
       <mwc-icon slot="meta">
         rule_folder
@@ -917,7 +917,7 @@ snapshots["open-scd looks like its snapshot"] =
       mwc-list-item=""
       selected=""
       tabindex="-1"
-      value="/src/menu/ImportIEDs.js"
+      value="/src/menu/ImportIEDs.ts"
     >
       <mwc-icon slot="meta">
         snippet_folder
@@ -932,7 +932,7 @@ snapshots["open-scd looks like its snapshot"] =
       left=""
       mwc-list-item=""
       tabindex="-1"
-      value="/src/menu/VirtualTemplateIED.js"
+      value="/src/menu/VirtualTemplateIED.ts"
     >
       <mwc-icon slot="meta">
         developer_board
@@ -948,7 +948,7 @@ snapshots["open-scd looks like its snapshot"] =
       mwc-list-item=""
       selected=""
       tabindex="-1"
-      value="/src/menu/SubscriberInfo.js"
+      value="/src/menu/SubscriberInfo.ts"
     >
       <mwc-icon slot="meta">
         play_circle
@@ -963,7 +963,7 @@ snapshots["open-scd looks like its snapshot"] =
       left=""
       mwc-list-item=""
       tabindex="-1"
-      value="/src/menu/UpdateDescriptionABB.js"
+      value="/src/menu/UpdateDescriptionABB.ts"
     >
       <mwc-icon slot="meta">
         play_circle
@@ -978,7 +978,7 @@ snapshots["open-scd looks like its snapshot"] =
       left=""
       mwc-list-item=""
       tabindex="-1"
-      value="/src/menu/UpdateDescriptionSEL.js"
+      value="/src/menu/UpdateDescriptionSEL.ts"
     >
       <mwc-icon slot="meta">
         play_circle
@@ -994,7 +994,7 @@ snapshots["open-scd looks like its snapshot"] =
       mwc-list-item=""
       selected=""
       tabindex="-1"
-      value="/src/menu/Merge.js"
+      value="/src/menu/Merge.ts"
     >
       <mwc-icon slot="meta">
         merge_type
@@ -1010,7 +1010,7 @@ snapshots["open-scd looks like its snapshot"] =
       mwc-list-item=""
       selected=""
       tabindex="-1"
-      value="/src/menu/UpdateSubstation.js"
+      value="/src/menu/UpdateSubstation.ts"
     >
       <mwc-icon slot="meta">
         merge_type
@@ -1025,7 +1025,7 @@ snapshots["open-scd looks like its snapshot"] =
       left=""
       mwc-list-item=""
       tabindex="-1"
-      value="/src/menu/CompareIED.js"
+      value="/src/menu/CompareIED.ts"
     >
       <mwc-icon slot="meta">
         compare_arrows
@@ -1040,7 +1040,7 @@ snapshots["open-scd looks like its snapshot"] =
       left=""
       mwc-list-item=""
       tabindex="-1"
-      value="/src/menu/ExportCommunication.js"
+      value="/src/menu/ExportCommunication.ts"
     >
       <mwc-icon slot="meta">
         sim_card_download
@@ -1062,7 +1062,7 @@ snapshots["open-scd looks like its snapshot"] =
       mwc-list-item=""
       selected=""
       tabindex="-1"
-      value="/src/menu/Help.js"
+      value="/src/menu/Help.ts"
     >
       <mwc-icon slot="meta">
         help
@@ -1078,7 +1078,7 @@ snapshots["open-scd looks like its snapshot"] =
       mwc-list-item=""
       selected=""
       tabindex="-1"
-      value="/src/menu/SclHistory.js"
+      value="/src/menu/SclHistory.ts"
     >
       <mwc-icon slot="meta">
         history_toggle_off
