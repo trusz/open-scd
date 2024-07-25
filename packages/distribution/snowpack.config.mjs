@@ -30,6 +30,7 @@ export default {
     '../openscd/': '/openscd/',
   },
   alias: {
+    // '@openscd/open-scd': '../openscd/src/',
     '@openscd/open-scd': '../openscd/',
     '@openscd/plugins': '../plugins/',
   },

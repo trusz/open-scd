@@ -3,8 +3,12 @@
     "target": "es2020",
     "module": "esnext",
     "moduleResolution": "node",
+    // "moduleResolution": "NodeNext",
     "noEmitOnError": true,
-    "lib": ["es2020", "dom"],
+    "lib": [
+      "es2020",
+      "dom"
+    ],
     "strict": true,
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
@@ -18,5 +22,8 @@
     "resolveJsonModule": true,
     "rootDir": "./src"
   },
-  "include": ["src/**/*.ts"]
+  "include": [
+    "./src/**/*.ts",
+    // "./test/**/*.ts"
+  ],
 }

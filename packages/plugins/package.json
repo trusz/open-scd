@@ -61,7 +61,7 @@
     "release:patch": "standard-version --release-as patch",
     "release:major": "standard-version --release-as major",
     "build": "npm run doc && npm run bundle",
-    "bundle": "tsc"
+    "bundle": "tsc -p tsconfig.build.json"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",

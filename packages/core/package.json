@@ -24,7 +24,8 @@
     "./foundation/deprecated/settings": "./dist/foundation/deprecated/settings.js",
     "./foundation/deprecated/validation": "./dist/foundation/deprecated/validation.js",
     "./foundation/deprecated/history": "./dist/foundation/deprecated/history.js",
-    "./foundation/deprecated/waiter": "./dist/foundation/deprecated/waiter.js"
+    "./foundation/deprecated/waiter": "./dist/foundation/deprecated/waiter.js",
+    "./foundation/scl.js": "./dist/foundation/scl.js"
   },
   "scripts": {
     "clean": "rimraf .tsbuildinfo dist",
