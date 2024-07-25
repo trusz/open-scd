@@ -1,13 +1,13 @@
 import { html, fixture, expect } from '@open-wc/testing';
 
-import './mock-editor.js';
+import '../mock-editor.js';
 
 import { Button } from '@material/mwc-button';
 
 import '../../src/wizard-textfield.js';
 import '../../src/wizard-dialog.js';
 import { WizardDialog } from '../../src/wizard-dialog.js';
-import { WizardInputElement } from '../../src/foundation.js';
+import { WizardInputElement } from '@openscd/core/foundation/scl.js';
 import { WizardCheckbox } from '../../src/wizard-checkbox.js';
 import { WizardSelect } from '../../src/wizard-select.js';
 import { WizardTextField } from '../../src/wizard-textfield.js';

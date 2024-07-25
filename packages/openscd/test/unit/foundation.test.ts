@@ -1,21 +1,27 @@
 import { expect, fixture, html } from '@open-wc/testing';
 
 import {
+  cloneElement,
   depth,
   find,
   findControlBlocks,
   findFCDAs,
+  getChildElementsByTagName,
   getNameAttribute,
   getReference,
   getSclSchemaVersion,
+  getUniqueElementName,
   identity,
-  ifImplemented,
   newLnInstGenerator,
-  newWizardEvent,
   SCLTag,
   tags,
   isSame,
-  minAvailableLogicalNodeInstance,
+  minAvailableLogicalNodeInstance
+} from '@openscd/core/foundation/scl.js';
+
+import {
+  ifImplemented,
+  newWizardEvent
 } from '../../src/foundation.js';
 
 import {
