@@ -11,6 +11,9 @@ import { ListItem } from '@material/mwc-list/mwc-list-item';
 import {
   identity,
   isEqual,
+} from '@openscd/core/foundation/scl.js';
+
+import {
   isSame,
   newWizardEvent,
   Wizard,

@@ -22,7 +22,6 @@ import { IconButton } from '@material/mwc-icon-button';
 import { List } from '@material/mwc-list';
 import { Menu } from '@material/mwc-menu';
 
-import { formatXml } from '@openscd/xml';
 
 import 'ace-custom-element';
 import './wizard-checkbox.js';
@@ -44,10 +43,17 @@ import {
   isWizardFactory,
   checkValidity,
   reportValidity,
-  identity,
   WizardInput,
   WizardMenuActor,
 } from './foundation.js';
+
+
+import {
+  identity,
+  formatXml,
+} from '@openscd/core/foundation/scl.js';
+
+
 
 function renderWizardInput(
   input: TemplateResult | WizardInput
