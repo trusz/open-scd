@@ -22,7 +22,7 @@ import {
 import { newLogEvent } from '@openscd/core/foundation/deprecated/history.js';
 import { newValidateEvent } from '@openscd/core/foundation/deprecated/validation.js';
 import { OpenDocEvent } from '@openscd/core/foundation/deprecated/open-event.js';
-import { getReference, SCLTag } from '../foundation.js';
+import { getReference, SCLTag } from '@openscd/core/foundation/scl.js';
 import {
   isCreate,
   isDelete,
