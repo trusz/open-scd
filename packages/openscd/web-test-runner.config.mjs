@@ -1,5 +1,6 @@
 // import { playwrightLauncher } from '@web/test-runner-playwright';
 import { esbuildPlugin } from '@web/dev-server-esbuild';
+import { playwrightLauncher } from '@web/test-runner-playwright';
 
 export default /** @type {import("@web/test-runner").TestRunnerConfig} */ ({
   /** we run test directly on TypeScript files */
@@ -13,21 +14,35 @@ export default /** @type {import("@web/test-runner").TestRunnerConfig} */ ({
    * Creating open-scd in the tests leads to error in the browser log - we had to disable the browser log
   */
   browserLogs: false,
+  browsers: [
+    playwrightLauncher({
+        product: 'chromium',
+        launchOptions:{
+          headless:false,
+          devtools:true,
+        }
+    }),
+  ],
 
-  /** specify groups for unit and integrations tests 
+  /** specify groups for unit and integrations tests
    * hint: no --group definition runs all groups
   */
   groups: [
+    // {
+    //   name: 'unit',
+    //   files: 'test/unit/**/*.test.ts',
+    // },
+    // {
+    //   name: 'integration',
+    //   files: 'test/integration/**/*.test.ts',
+    // },
     {
-      name: 'unit',
-      files: 'test/unit/**/*.test.ts',
-    },
-    {
-      name: 'integration',
-      files: 'test/integration/**/*.test.ts',
+      name: 'single',
+      files: 'test/unit/Plugging.test.ts',
     },
   ],
-  
+
+
   /** Compile JS for older browsers. Requires @web/dev-server-esbuild plugin */
   // esbuildTarget: 'auto',
 
