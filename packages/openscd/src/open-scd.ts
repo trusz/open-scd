@@ -288,6 +288,7 @@ export class OpenSCD extends LitElement {
       }
     );
     this.addEventListener('set-plugins', (e: SetPluginsEvent) => {
+      console.error("set-plugins event called", e.detail.indices)
       this.setPlugins(e.detail.indices);
     });
 
@@ -334,20 +335,31 @@ export class OpenSCD extends LitElement {
     </oscd-waiter>`;
   }
 
-  private storePlugins(plugins: Array<Plugin | InstalledOfficialPlugin>) {
-    localStorage.setItem(
-      'plugins',
-      JSON.stringify(plugins.map(withoutContent))
-    );
+  private storeCounter = 0
+
+  // TODO: setItem und requestupdate both can cause the problem
+  // TODO: check what gets set in the local storage
+  private storePlugins(plugins: Array<Plugin | InstalledOfficialPlugin>): void {
+    // if(this.storeCounter > 10) { return }
+    const localStorageContent = plugins.map(withoutContent)
+    this.storeCounter += 1
+    localStorage.setItem('plugins', JSON.stringify(localStorageContent));
+    console.log("storeCounter", this.storeCounter)
+
     this.requestUpdate();
   }
+
   private resetPlugins(): void {
+
     this.storePlugins(
       (builtinPlugins as Plugin[]).concat(this.parsedPlugins).map(plugin => {
+        const installed = plugin.default ?? false;
+        console.log("resetPlugins", {name: plugin.name, installed, default: plugin.default})
         return {
           src: plugin.src,
-          installed: plugin.default ?? false,
+          installed,
           official: true,
+          requireDoc: plugin.requireDoc,
         };
       })
     );
@@ -456,9 +468,11 @@ export class OpenSCD extends LitElement {
       .concat(this.parsedPlugins)
       .filter(p => !officialStored.find(o => o.src === p.src))
       .map(plugin => {
+        const installed = plugin.default ?? false;
+        console.log("resetPlugins", {name: plugin.name, installed, default: plugin.default})
         return {
           src: plugin.src,
-          installed: plugin.default ?? false,
+          installed,
           official: true as const,
         };
       });

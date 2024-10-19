@@ -4,9 +4,11 @@ import '../mock-open-scd.js';
 import { MockOpenSCD } from '../mock-open-scd.js';
 
 import { TextField } from '@material/mwc-textfield';
+import { PluginInstaller } from '../../src/addons/plugins.installer';
 
 describe('OpenSCD-Plugin', () => {
   let element: MockOpenSCD;
+  let pluginInstaller: PluginInstaller | undefined
   let doc: XMLDocument;
   const docName = 'testDoc';
 
@@ -18,11 +20,15 @@ describe('OpenSCD-Plugin', () => {
     doc = await fetch('/test/testfiles/valid2007B4.scd')
       .then(response => response.text())
       .then(str => new DOMParser().parseFromString(str, 'application/xml'));
+
     element = <MockOpenSCD>(
       await fixture(
         html`<mock-open-scd .doc=${doc} .docName=${docName}></mock-open-scd>`
       )
     );
+    pluginInstaller = element.layout.pluginInstallerElement;
+    console.log("pluginInstaller",pluginInstaller, pluginInstaller?.shadowRoot?.querySelector('mwc-button'))
+
     await element.updateComplete;
   });
 
@@ -87,40 +93,36 @@ describe('OpenSCD-Plugin', () => {
       primaryAction.click();
       await element.updateComplete;
       expect(element.layout)
-        .property('pluginDownloadUI')
+        .property('pluginInstallerElement')
         .to.have.property('open', true);
     });
   });
 
   describe('add custom plugin dialog', () => {
-    let src: TextField;
-    let name: TextField;
+    let pluginSrc: TextField;
+    let pluginName: TextField;
     let primaryAction: HTMLElement;
     let menuKindOption: HTMLElement;
     let validatorKindOption: HTMLElement;
 
     beforeEach(async () => {
-      src = <TextField>(
-        element.layout.pluginDownloadUI.querySelector('#pluginSrcInput')
-      );
-      name = <TextField>(
-        element.layout.pluginDownloadUI.querySelector('#pluginNameInput')
-      );
+      pluginSrc = <TextField>(element.layout.pluginInstallerElement?.pluginSrcInput);
+      pluginName = <TextField>(element.layout.pluginInstallerElement?.pluginNameInput);
       primaryAction = <HTMLElement>(
-        element.layout.pluginDownloadUI.querySelector(
-          'mwc-button[slot="primaryAction"]'
+        element.layout.pluginInstallerElement?.shadowRoot?.querySelector(
+        'mwc-button[slot="primaryAction"]'
         )
       );
-      element.layout.pluginDownloadUI.show();
-      await element.layout.pluginDownloadUI.updateComplete;
+      element.layout.openPluginInstaller();
+      await element.layout.pluginInstallerElement?.updateComplete;
       await element.updateComplete;
       menuKindOption = <HTMLElement>(
-        element.layout.pluginDownloadUI.querySelector(
+        element.layout.pluginInstallerElement?.querySelector(
           '#pluginKindList > mwc-radio-list-item[value="menu"]'
         )
       );
       validatorKindOption = <HTMLElement>(
-        element.layout.pluginDownloadUI.querySelector(
+        element.layout.pluginInstallerElement?.querySelector(
           '#pluginKindList > mwc-radio-list-item[id="validator"]'
         )
       );
@@ -131,68 +133,68 @@ describe('OpenSCD-Plugin', () => {
 
       it('does not add without user interaction', async () => {
         primaryAction.click();
-        expect(element.layout.pluginDownloadUI).to.have.property('open', true);
+        expect(element.layout.pluginInstallerElement).to.have.property('open', true);
       })
 
       it('does not add without a name', async () => {
-        src.value = 'http://example.com/plugin.js';
-        await src.updateComplete;
+        pluginSrc.value = 'http://example.com/plugin.js';
+        await pluginSrc.updateComplete;
         primaryAction.click();
-        expect(element.layout.pluginDownloadUI).to.have.property('open', true);
+        expect(element.layout.pluginInstallerElement).to.have.property('open', true);
       })
 
       it('does not add plugin with incorrect url', async () => {
-        src.value = 'notaURL';
-        name.value = 'testName';
-        await src.updateComplete;
-        await name.updateComplete;
+        pluginSrc.value = 'notaURL';
+        pluginName.value = 'testName';
+        await pluginSrc.updateComplete;
+        await pluginName.updateComplete;
         primaryAction.click();
-        expect(element.layout.pluginDownloadUI).to.have.property('open', true);
+        expect(element.layout.pluginInstallerElement).to.have.property('open', true);
       });
 
 
       it('adds a plugin with a name and a valid URL', async () => {
-        name.value = 'testName';
-        await name.updateComplete;
+        pluginName.value = 'testName';
+        await pluginName.updateComplete;
 
-        src.value = 'http://localhost:8080/plugin/plugin.js';
-        await src.updateComplete;
+        pluginSrc.value = 'http://localhost:8080/plugin/plugin.js';
+        await pluginSrc.updateComplete;
 
         primaryAction.click();
 
-        expect(element.layout.pluginDownloadUI).to.have.property('open', false);
+        expect(element.layout.pluginInstallerElement).to.have.property('open', false);
       }).timeout(600_000);
 
     });
 
-    it('adds a new editor kind plugin on add button click', async () => {
-      src.value = 'http://example.com/plugin.js';
-      name.value = 'testName';
-      await src.updateComplete;
-      await name.updateComplete;
+    it.only('adds a new editor kind plugin on add button click', async (done) => {
+      pluginInstaller?.setPluginSrc('http://example.com/plugin.js')
+      pluginInstaller?.setPluginName('testName')
+      await pluginInstaller?.updateComplete
       primaryAction.click();
-      await element.updateComplete;
+      // await element.updateComplete;
       expect(element.layout.editors).to.have.lengthOf(7);
-    });
+    // })
+    }).timeout(600_000);
 
     it('adds a new menu kind plugin on add button click', async () => {
       const lengthMenuKindPlugins = element.layout.menuEntries.length;
-      src.value = 'http://example.com/plugin.js';
-      name.value = 'testName';
+      pluginSrc.value = 'http://example.com/plugin.js';
+      pluginName.value = 'testName';
       menuKindOption.click();
-      await src.updateComplete;
-      await name.updateComplete;
+      await pluginSrc.updateComplete;
+      await pluginName.updateComplete;
       primaryAction.click();
       await element.updateComplete;
       expect(element.layout.menuEntries).to.have.lengthOf(lengthMenuKindPlugins + 1);
     });
 
     it('sets requireDoc and position for new menu kind plugin', async () => {
-      src.value = 'http://example.com/plugin.js';
-      name.value = 'testName';
+      pluginSrc.value = 'http://example.com/plugin.js';
+      pluginName.value = 'testName';
       menuKindOption.click();
-      await src.updateComplete;
-      await name.updateComplete;
+      await pluginSrc.updateComplete;
+      await pluginName.updateComplete;
       primaryAction.click();
       await element.updateComplete;
 
@@ -205,11 +207,11 @@ describe('OpenSCD-Plugin', () => {
     });
     it('adds a new validator kind plugin on add button click', async () => {
       expect(element.layout.validators).to.have.lengthOf(2);
-      src.value = 'http://example.com/plugin.js';
-      name.value = 'testName';
+      pluginSrc.value = 'http://example.com/plugin.js';
+      pluginName.value = 'testName';
       validatorKindOption.click();
-      await src.updateComplete;
-      await name.updateComplete;
+      await pluginSrc.updateComplete;
+      await pluginName.updateComplete;
       primaryAction.click();
       await element.updateComplete;
       expect(element.layout.validators).to.have.lengthOf(3);

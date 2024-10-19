@@ -115,6 +115,8 @@ describe('open-scd', () => {
     expect(async () => await fetch(emptyBlobURL)).to.throw;
   });
 
+  // rendering of menu plugins is in
+  // Layout.ts `renderContent` function
   it('renders menu plugins passed down as props and it looks like its snapshot', async () => {
     element = await fixture(html`
       <open-scd
